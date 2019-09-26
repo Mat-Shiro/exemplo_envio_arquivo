@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Envio de Arquivo</title>
+</head>
+<body>
+    <!-- Cria um form para o envio,
+        enctype -> Define o tipo de envio(application/json, application/x-www-form-urlencoded, multipart/form-data). Não é obrigatório, caso omitido é definido automaticamente;
+        action -> O arquivo PHP(ou EndPoint) que vai receber o formulário e fazer os processamentos necessários. Obrigatório;
+        method -> O método de envio (POST ou GET) que vai ser utilizado para enviar o arquivo. Se for omitido sempre será um GET. Como é um envio de dados, o método foi definido como POST. -->
+    <form enctype="multipart/form-data" action="/envio_arquivo/file.php" method="POST">
+        <!-- Cria o input para selecionar o arquivo
+            name -> Nome do campo do formulário que vai conter o arquivo para ser enviado. Necessário para identificar o campo no lado do PHP;
+            type -> Tipo do campo, define se o campo vai ser um texto(text), senha(password), arquivo(file), etc;
+            accept -> Define o conteúdo que vai ser aceito para ser enviado. No caso está para aceitar qualquer tipo de arquivo(*/*), mas pode ser definido para aceitar apenas um tipo ou vários.
+            Exemplos:
+                accept="image/png" -> Apenas arquivos do TIPO PNG;
+                accept="image/jpeg" -> Apenas arquivos do TIPO JPEG;
+                accept="application/pdf" -> Apenas arquivos do TIPO PDF;
+                accept=".png" -> Apenas arquivos de EXTENSÃO PNG;
+                accept="image/*, .pdf, video/mp4" -> Todos os tipos de imagem, arquivos com EXTENSÃO PDF e arquivos do TIPO MP4. -->
+        Enviar um arquivo: <input name="arquivo" type="file" accept="*/*" />
+        <br>
+        <br>
+        <!-- Cria o botão de envio
+            value -> Texto do botão -->
+        <input type="submit" value="Enviar arquivo" />
+    </form>
+</body>
+</html>
